@@ -28,13 +28,19 @@ public class Course {
         return courseModules;
     }
 
+    public void addModule(Module m){
+        courseModules.add(m);
+    }
+
     public void setCourseModules(ArrayList<Module> courseModules) {
         this.courseModules = courseModules;
     }
 
     public void addCourseModule(Module m)
     {
-        courseModules.add(m);
+        if(!courseModules.contains(m)) {
+            courseModules.add(m);
+        }
     }
 
     public void addStudent(Student student){

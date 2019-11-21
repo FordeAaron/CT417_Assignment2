@@ -1,36 +1,37 @@
 import org.joda.time.LocalDate;
+import org.joda.time.Period;
+import org.joda.time.Years;
+
 import java.util.ArrayList;
-
-
 
 public class Student {
 
     private String name, id, userName;
-    private LocalDate dob;
     private int age;
+    private LocalDate dob;
     private ArrayList<Module> modules;
 
-    public Student(String name, String id, LocalDate dob, ArrayList<Module> modules)
+    public Student(String name, int age, String id, LocalDate dob)
     {
         this. name = name;
-        this.age = this.getAge();
+        this.age = age;
         this.dob = dob;
         this.id = id;
         this.userName = this.getUsername();
-        this.modules = modules;
     }
 
-    public int getAge()
-    {
-        LocalDate currentYear = new LocalDate();
-       int year = currentYear.getYear();
-       return this.age = year - dob.getYear();
-    }
     public String getUsername()
     {
-        String userName;
-        userName = name + age;
+        String userName = name + String.valueOf(getAge());
         return userName;
+    }
+
+    public void setAge() {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
     }
 
     public void addModule(Module newModule){
