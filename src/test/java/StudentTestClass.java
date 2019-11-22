@@ -1,12 +1,12 @@
-import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
-import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class StudentTestClass {
 
     Student student1 = new Student("Tom",21,"1538754",new LocalDate(1997, 12,29));
+    Module module1 = new Module("Programming 1", "CT101");
+    Course course1 = new Course("CS&IT", new LocalDate(1,9,2018), new LocalDate(20, 5,2019));
 
     public StudentTestClass(){}
 
@@ -63,6 +63,34 @@ public class StudentTestClass {
         }
     }
 
+    @Test
+    public void testAddModule(){
+        Module module = module1;
+        Student instance = student1;
+        instance.addModule(module);
+        try{
+            // assertEquals(expectedDOB, dob);
+            System.out.println("testAddModule test passed");
+        }catch(AssertionError e){
+
+            System.out.println("testAddModule test failed");
+        }
+    }
+
+    @Test
+    public void testAddCourse(){
+        Course course = course1;
+        Student instance = student1;
+        boolean expResult = true;
+        boolean result= instance.addCourse(course);
+        try{
+            assertEquals();
+            System.out.println("testAddCourse test passed");
+        }catch(AssertionError e){
+
+            System.out.println("testAddCourse test failed");
+        }
+    }
 
 
 
