@@ -2,14 +2,15 @@ import org.joda.time.LocalDate;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class StudentTestClass {
+public class ProjectTestClass {
 
     Student student1 = new Student("Tom",21,"1538754",new LocalDate(1997, 12,29));
+    Course course1 = new Course("CS&IT", new LocalDate(2018,9,1), new LocalDate(2019, 5,14));
+
     Module module1 = new Module("Programming 1", "CT101");
-    Course course1 = new Course("CS&IT", new LocalDate(1,9,2018), new LocalDate(20, 5,2019));
+    Module module2 = new Module("Computer Systems", "CS102");
 
-    public StudentTestClass(){}
-
+    public ProjectTestClass(){}
     @Test
     public void getStudentName(){
         String expected = "Tom";
@@ -19,7 +20,7 @@ public class StudentTestClass {
             System.out.println("GetStudentName test passed");
         }
         catch (AssertionError e){
-                System.out.println("GetStudentName test failed");
+            System.out.println("GetStudentName test failed");
         }
     }
 
@@ -84,12 +85,39 @@ public class StudentTestClass {
         boolean expResult = true;
         boolean result= instance.addCourse(course);
         try{
-            assertEquals();
+            //assertEquals();
             System.out.println("testAddCourse test passed");
         }catch(AssertionError e){
 
             System.out.println("testAddCourse test failed");
         }
+    }
+
+    @Test
+    public void testModuleName(){
+        String expectedName = "Software Engineering";
+        String name = module1.getModuleName();
+        try {
+            assertEquals(expectedName, name);
+            System.out.println("GetModuleName test passed");
+        }
+        catch (AssertionError e){
+            System.out.println("GetModuleName test failed");
+        }
+    }
+
+    @Test
+    public void testModuleID(){
+        String expectedID = "ct417";
+        String actualID = module1.getId();
+        try {
+            assertEquals(expectedID, actualID);
+            System.out.println("testModuleID test passed");
+        }
+        catch (AssertionError e){
+            System.out.println("testModuleID test failed");
+        }
+
     }
 
 
