@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Course {
 
     private String courseName;
-    private ArrayList<Student> enrolledStudents = new ArrayList<Student>();
-    private ArrayList<Module> courseModules = new ArrayList<Module>();
+    private ArrayList<Student> enrolledStudents;
+    private ArrayList<Module> courseModules;
     private LocalDate startDate;
     private LocalDate endDate;
 
@@ -14,6 +14,28 @@ public class Course {
         this.courseName = courseName;
         this.endDate = endDate;
         this.startDate = startDate;
+        enrolledStudents = new ArrayList<>();
+        courseModules = new ArrayList<>();
+    }
+
+    public void addModule(Module m) {
+        if (!courseModules.contains(m)) {
+            courseModules.add(m);
+            ArrayList<Student> ModuleStudents = m.getStudents();
+            for (Student student : ModuleStudents) {
+                if (!enrolledStudents.contains(student)) {
+                    enrolledStudents.add(student);
+                    student.addCourse(this);
+                }
+            }
+        }
+    }
+
+    public void addStudent(Student student) {
+        if (!enrolledStudents.contains(student)) {
+            enrolledStudents.add(student);
+
+        }
     }
 
     public String getCourseName() {
@@ -28,27 +50,10 @@ public class Course {
         return courseModules;
     }
 
-    public void addModule(Module m){
-        courseModules.add(m);
-    }
-
     public void setCourseModules(ArrayList<Module> courseModules) {
         this.courseModules = courseModules;
     }
 
-    public void addCourseModule(Module m)
-    {
-        if(!courseModules.contains(m)) {
-            courseModules.add(m);
-        }
-    }
-
-    public void addStudent(Student student){
-        if(!enrolledStudents.contains(student)){
-            enrolledStudents.add(student);
-
-        }
-    }
 
     public ArrayList<Student> getEnrolledStudents() {
         return enrolledStudents;
