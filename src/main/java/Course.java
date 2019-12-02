@@ -14,24 +14,24 @@ public class Course {
         this.courseName = courseName;
         this.endDate = endDate;
         this.startDate = startDate;
-        enrolledStudents = new ArrayList<>();
-        courseModules = new ArrayList<>();
+        enrolledStudents = new ArrayList();
+        courseModules = new ArrayList();
     }
 
-    public void addModule(Module m) {
+    public void courseAddModule(Module m) {
         if (!courseModules.contains(m)) {
             courseModules.add(m);
             ArrayList<Student> ModuleStudents = m.getStudents();
             for (Student student : ModuleStudents) {
                 if (!enrolledStudents.contains(student)) {
                     enrolledStudents.add(student);
-                    student.addCourse(this);
+                    student.studentAddCourse(this);
                 }
             }
         }
     }
 
-    public void addStudent(Student student) {
+    public void courseAddStudent(Student student) {
         if (!enrolledStudents.contains(student)) {
             enrolledStudents.add(student);
 

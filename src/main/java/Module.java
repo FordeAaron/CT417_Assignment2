@@ -9,8 +9,8 @@ public class Module {
     public Module(String moduleName, String id) {
         this.moduleName = moduleName;
         this.id = id;
-        studentsInModule = new ArrayList<>();
-        courses = new ArrayList<>();
+        studentsInModule = new ArrayList();
+        courses = new ArrayList();
     }
 
     public String getId() {
