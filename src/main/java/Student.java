@@ -17,8 +17,8 @@ public class Student {
         this.dob = dob;
         this.id = id;
         this.userName = this.getUsername();
-        modules = new ArrayList<>();
-        courses = new ArrayList<>();
+        modules = new ArrayList();
+        courses = new ArrayList();
     }
 
     public String getUsername()
