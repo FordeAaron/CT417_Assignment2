@@ -28,7 +28,7 @@ public class Student {
     }
 
 
-    public void addModule(Module newModule){
+    public void studentAddModule(Module newModule){
         this.modules.add(newModule);
     }
 
@@ -36,7 +36,7 @@ public class Student {
         return this.modules;
     }
 
-    public boolean addCourse(Course course) {
+    public boolean studentAddCourse(Course course) {
         this.courses.add(course);
         return false;
     }
